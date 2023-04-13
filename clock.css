@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body {
+    background: lightgreen;
+    /* position: absolute;
+    left: 40%;
+    top: 20%;   another way to change the to center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* overflow: hidden is used to do not move up,down,left and right */
+    overflow: hidden;
+    
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    background-color: rgb(240, 195, 195);
+    border-radius: 50%;
+    position: relative;
+    border: 3px solid black; 
+}
+
+.clock .number {
+    /* --rotation: by default rotation should zero */
+    --rotation: 0;                                       
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation)); 
+    /* (var(--rotation): we used to write to multiply like degrees 30,60,90 deg */
+    font-size: 20px;
+}
+
+.clock .number1 { --rotation:  30deg; }
+.clock .number2 { --rotation:  60deg; }
+.clock .number3 { --rotation:  90deg; }
+.clock .number4 { --rotation:  120deg; }
+.clock .number5 { --rotation:  150deg; }
+.clock .number6 { --rotation:  180deg; }
+.clock .number7 { --rotation:  210deg; }
+.clock .number8 { --rotation:  240deg; }
+.clock .number9 { --rotation:  270deg; }
+.clock .number10 { --rotation: 300deg; }
+.clock .number11 { --rotation: 330deg; }
+.clock .number12 { --rotation: 360deg; }
+
+
+.clock .Hand {
+    --rotation: 0;
+    position: absolute;
+    height: 45%;
+    border: 3px solid black;
+    border: none;
+    width: 10px;
+    left: 50%;
+    bottom: 50%;
+    background-color: black;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(calc(var(--rotation)* 1deg));  
+}
+
+.clock::after {
+    position: absolute;
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    top: 47%;
+    left: 47%;
+    /* z-index is used to change the lower to upper element */
+    /* z-index: 11; */
+    /* content: '' - means adding a new element of a style */
+    /* content: '';   */
+    border-radius: 50%;     
+
+}
+
+.clock .Hand.seconds {
+    width: 2px;
+    height: 45%;
+    border: 1px solid red;
+    background-color: red;    
+}
+
+.clock .Hand.minutes{
+    width: 6px;
+    height: 40%;
+    border: 1px solid  blue;
+    background-color:  blue;
+    border-top-left-radius: 350px;
+    border-top-right-radius: 350px; 
+}
+
+.clock .Hand.hour {
+    width: 10px;
+    height: 30%;
+    background-color: black;
+}
+
